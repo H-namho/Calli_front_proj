@@ -1,0 +1,278 @@
+/* MyPage.css */
+
+.mypage-inner {
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: #333;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.mypage-container {
+    width: 600px;
+    /* 카드는 더 좁게 */
+    max-width: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* 1. 사용자 정보 섹션 */
+.user-info-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.greeting-text {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    text-align: center;
+    color: #000;
+}
+
+.user-meta-info {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    color: #555;
+    font-size: 15px;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.meta-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.meta-divider {
+    color: #DDD;
+    margin: 0 4px;
+}
+
+/* 2. 카드 공통 스타일 */
+.mypage-card {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+.edit-btn {
+    font-size: 14px;
+    color: #999;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* 내 정보 리스트 */
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+.info-label {
+    color: #999;
+}
+
+.info-value {
+    color: #333;
+    font-weight: 500;
+}
+
+/* 최근 결제 내역 */
+.payment-history-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    gap: 12px;
+}
+
+.empty-history-text {
+    color: #999;
+    font-size: 15px;
+}
+
+.charge-link-btn {
+    color: #6366F1;
+    font-size: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.history-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+/* 결제 내역 테이블 스타일 (HTML Table) */
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 2px solid #333;
+}
+
+.history-table th {
+    padding: 12px 10px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eee;
+    font-weight: 600;
+    color: #555;
+    font-size: 14px;
+    text-align: center;
+}
+
+.history-table td {
+    padding: 14px 10px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+
+.history-table tr:last-child td {
+    border-bottom: none;
+}
+
+.history-date {
+    color: #666;
+}
+
+.history-method {
+    color: #888;
+}
+
+.history-amount {
+    font-weight: 700;
+    color: #6366F1;
+}
+/* //----- */
+/* =========================
+   ✅ 최근 이용내역 페이징 UI (추가)
+   - 기존 MyPage.css 안 건드리고 아래에만 덧붙이는 방식
+========================= */
+
+/* 상단의 size 선택 박스 */
+.pay-size-box{
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.pay-size-label{
+  font-size: 13px;
+  color: #666;
+}
+
+.pay-size-select{
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid #e1e8ed;
+  background: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.pay-size-select:focus{
+  border-color: #0d84d9;
+  box-shadow: 0 0 0 4px rgba(13,132,217,0.12);
+}
+
+/* 페이징 영역 */
+.pay-pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+/* 버튼 공통 */
+.pay-page-btn{
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid #e1e8ed;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+/* hover 느낌 */
+.pay-page-btn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(13,132,217,0.35);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.06);
+}
+
+/* disabled는 확실히 티나게 */
+.pay-page-btn:disabled{
+  cursor: not-allowed;
+  opacity: 0.45;
+  transform: none;
+  box-shadow: none;
+}
+
+/* 페이지 정보 pill */
+.pay-page-info{
+  min-width: 90px;
+  text-align: center;
+  height: 34px;
+  line-height: 34px;
+  border-radius: 999px;
+  background: rgba(13,132,217,0.08);
+  color: #0d84d9;
+  font-size: 13px;
+  font-weight: 700;
+}
+

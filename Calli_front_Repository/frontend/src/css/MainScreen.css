@@ -1,0 +1,526 @@
+/* MainScreen.css: 메인 화면 전용 스타일 시트 */
+
+.figma-main-screen {
+  margin: 0;
+  background-color: transparent;
+  overflow-x: hidden;
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  /* 헤더 영역을 제외한 최소 높이 설정 */
+  position: relative;
+  font-family: "Noto Sans KR", Helvetica, sans-serif;
+  color: #333333;
+}
+
+/* --- 상단 배경 슬라이드쇼 관련 스타일 --- */
+
+.slideshow-container {
+  width: 100%;
+  height: 390px;
+  /* 슬라이드쇼 고정 높이 */
+  position: relative;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+
+/* 개별 슬라이드 이미지 스타일 */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  /* 이미지가 영역을 꽉 채우도록 설정 */
+  background-position: center;
+  /* 이미지 중앙 정렬 */
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  /* 부드러운 전환 효과 */
+}
+
+/* 현재 활성화된 슬라이드 */
+.slide.active {
+  opacity: 1;
+}
+
+/* --- 페이지 공통 레이아웃 --- */
+
+/* --- 페이지 공통 레이아웃 (제거됨 - 섹션별 처리) --- */
+
+/* 개별 섹션 공통 스타일 (Full Width) */
+.main-section {
+  width: 100%;
+  padding: 80px 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* 색상 배경 섹션 (#F5F3FF - 연한 보라빛) */
+.colored-bg {
+  background-color: #F8F9FF;
+  /* 또는 #F5F3FF */
+}
+
+/* 내부 콘텐츠 컨테이너 (Center Aligned) */
+.section-inner {
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+/* --- 히어로 섹션 (소개 및 CTA) --- */
+
+/* 스크롤 애니메이션 초기 상태 */
+/* --- 스크롤 애니메이션 정의 --- */
+
+/* 0. 히어로 섹션 (Blur In - 제자리에서 선명해짐) */
+.hero-animate {
+  opacity: 0;
+  filter: blur(10px);
+  transform: scale(0.98);
+  /* 살짝 커지는 느낌 추가 */
+  transition: opacity 1.5s ease, filter 1.5s ease, transform 1.5s ease;
+}
+
+.hero-animate.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+/* 1. 이용 방법 (계단식 등장) */
+.usage-grid .info-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.usage-grid.animate-on-scroll.visible .info-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger Delays */
+.usage-grid.visible .info-card:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.usage-grid.visible .info-card:nth-child(2) {
+  transition-delay: 0.3s;
+}
+
+.usage-grid.visible .info-card:nth-child(3) {
+  transition-delay: 0.5s;
+}
+
+
+/* 2. 주요 기능 (Zoom In & Fade) */
+.features-grid .info-card {
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  transition: all 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.features-grid.animate-on-scroll.visible .info-card {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.features-grid.visible .info-card:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.features-grid.visible .info-card:nth-child(2) {
+  transition-delay: 0.4s;
+}
+
+.features-grid.visible .info-card:nth-child(3) {
+  transition-delay: 0.7s;
+}
+
+
+/* 3. FAQ (전체 박스 슬라이드 업) */
+.faq-section.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease-out;
+}
+
+.faq-section.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-section {
+  text-align: center;
+  /* padding-bottom 제거 - 상위 main-section에서 처리 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 상단 라벨 텍스트 */
+.hero-label {
+  font-size: 20px;
+  color: #6366F1;
+  /* 브랜드 포인트 컬러 */
+  margin-bottom: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* 메인 제목 */
+.hero-title {
+  font-family: "Noto Sans KR", Helvetica;
+  font-size: clamp(32px, 5vw, 30px);
+  /* 한눈에 들어오도록 폰트 크기를 44px로 축소 */
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+/* 설명 문구 */
+.hero-description {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* 네비게이션 바로가기 링크 그룹 */
+.hero-nav-links {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* 개별 바로가기 링크 (버튼 형태) */
+.small-link-btn {
+  background: none;
+  border: none;
+  color: #6366F1;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-bottom: 2px solid transparent;
+  font-family: inherit;
+}
+
+.small-link-btn:hover {
+  color: #6366F1;
+  border-bottom: 2px solid #6366F1;
+}
+
+/* 메인 시작하기 버튼 (CTA) */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 44px;
+  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  /* 호버 시 떠오르는 효과 */
+  box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4);
+  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+}
+
+/* 초대형 CTA 버튼 */
+.large-cta {
+  padding: 22px 70px;
+  font-size: 22px;
+}
+
+/* 섹션 구분선 */
+/* 섹션 구분선 (.divider) 제거됨 */
+
+/* --- 정보 및 기능 섹션 (카드 그리드) --- */
+
+.info-section {
+  width: 100%;
+  /* margin-bottom 제거 */
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: #888;
+}
+
+/* 카드 배치를 위한 그리드 시스템 */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3열 배치 */
+  gap: 30px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* 900px 미만에서 1열로 변경 */
+@media (max-width: 900px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 개별 카드 스타일 */
+.info-card {
+  background: #fff;
+  padding: 50px 30px;
+  border-radius: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* 카드 상단 아이콘 */
+.card-icon-large {
+  font-size: 48px;
+  margin-bottom: 24px;
+}
+
+.blue-icon {
+  color: #6366F1;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 16px;
+}
+
+.card-text {
+  color: #666;
+  line-height: 1.7;
+  font-size: 16px;
+  word-break: keep-all;
+  /* 단어 단위로 줄바꿈 (한글에 필수) */
+}
+
+/* --- 사용자 후기 섹션 --- */
+
+/* Marquee (흐르는 효과) 스타일 */
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 30px;
+  animation: scroll 40s linear infinite;
+  width: max-content;
+  padding: 20px 0;
+  /* 그림자 잘림 방지 */
+}
+
+/* 마우스 올리면 멈춤 */
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  width: 380px;
+  flex-shrink: 0;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.review-section {
+  width: 100%;
+  /* margin-bottom 제거 */
+  overflow: hidden;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* 반응형 별 컬럼 수 조정 */
+@media (max-width: 1100px) {
+  .review-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 후기 카드 스타일 */
+.review-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.review-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+/* 후기 작성자 정보 */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+/* 사용자 아바타 스타일 */
+.user-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 20px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.avatar-blue {
+  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+}
+
+.avatar-pink {
+  background: linear-gradient(135deg, #f472b6 0%, #db2777 100%);
+}
+
+.avatar-green {
+  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+}
+
+.username {
+  font-weight: 700;
+  color: #000;
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.stars {
+  color: #fbbf24;
+  /* 별점 색상 (금색) */
+  font-size: 16px;
+}
+
+.review-text {
+  color: #555;
+  line-height: 1.8;
+  font-size: 15px;
+  font-style: normal;
+}
+
+/* --- FAQ 섹션 --- */
+
+.faq-section {
+  width: 100%;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* margin-bottom 제거 */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 개별 질문 아이템 */
+.faq-item {
+  background: #f8fafc;
+  border-radius: 20px;
+  padding: 30px 35px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+
+
+/* 질문 제목 */
+.faq-question {
+  display: flex;
+  gap: 12px;
+  font-weight: 800;
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.q-label {
+  color: #6366F1;
+}
+
+/* 답변 내용 */
+.faq-answer {
+  padding-left: 31px;
+  color: #666;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* 하단 내비게이션 영역 */
+.bottom-nav-area {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}

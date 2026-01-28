@@ -1,0 +1,441 @@
+/* ServiceInfo.css */
+.service-info-page {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px 80px;
+    min-height: 70vh;
+}
+
+.service-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.tab-btn {
+    padding: 12px 35px;
+    font-size: 16px;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    color: #888;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.tab-btn:hover {
+    background: #eee;
+    color: #555;
+}
+
+.tab-btn.active {
+    background: #333;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-content-wrapper {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Intro Section */
+.service-hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
+    border-radius: 20px;
+    margin-bottom: 40px;
+}
+
+.service-hero h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #222;
+    background: linear-gradient(90deg, #333, #666);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.service-hero p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.feature-card {
+    background: white;
+    padding: 40px 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.2s;
+    border: 1px solid #f0f0f0;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.feature-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.feature-card p {
+    font-size: 15px;
+    color: #777;
+    line-height: 1.5;
+}
+
+/* Guide Section */
+.guide-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.guide-header h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.guide-header p {
+    color: #666;
+    font-size: 16px;
+}
+
+.guide-steps-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.guide-card {
+    background: white;
+    border-radius: 16px;
+    border: 3px solid #6366F1;
+    /* User Requested Blue */
+    overflow: hidden;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+}
+
+.guide-card:hover {
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Visual Mockup Area - Using Real UI Clones */
+.guide-visual-area {
+    height: 300px;
+    background-color: #f8fbff;
+    /* Very light blue tint */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #e1e8ed;
+    overflow: hidden;
+    position: relative;
+    padding-top: 20px;
+}
+
+.ui-clone-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    /* 클릭 방지 */
+    user-select: none;
+}
+
+/* Important overrides for scaled components */
+.ui-clone-wrapper .login-card,
+.ui-clone-wrapper .input-card,
+.ui-clone-wrapper .preview-card {
+    min-height: auto !important;
+    margin: 0 !important;
+    background: white;
+}
+
+/* Text Area */
+.guide-text-area {
+    padding: 25px;
+    position: relative;
+    flex: 1;
+}
+
+.step-number {
+    font-size: 48px;
+    font-weight: 900;
+    color: #222;
+    /* Black/Dark Gray */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    line-height: 1;
+    z-index: 2;
+    opacity: 1;
+}
+
+.guide-text-area h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+    position: relative;
+    z-index: 1;
+    font-weight: 700;
+}
+
+.guide-text-area p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+
+/* 
+   Pricing Section Styles 
+*/
+.pricing-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.pricing-header h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.pricing-header p {
+    color: #666;
+    font-size: 16px;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Pricing Card Base */
+.pricing-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid #eee;
+    transition: all 0.3s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Use the brand blue for borders to match guide if desired, or keep it distinct.
+   The user asked for "box border to be blue" in Guide context, but maybe likes it here too.
+   I'll use a softer version or the same relative style.
+*/
+.pricing-card {
+    border: 2px solid #eee;
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-color: #6366F1;
+}
+
+/* Highlighted Card (Pro/Charge) - Moved from Basic */
+.pricing-card.pro {
+    border: 3px solid #6366F1;
+    /* User Color */
+    transform: scale(1.05);
+    /* Slightly bigger */
+    box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+    z-index: 1;
+}
+
+.pricing-card.pro:hover {
+    transform: scale(1.05) translateY(-5px);
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #555;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.badge.popular {
+    background: #777;
+    /* Neutral for middle card now */
+    color: #fff;
+    box-shadow: none;
+}
+
+.pricing-card h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    min-height: 24px;
+    /* Force alignment */
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.price {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    /* Center Vertically */
+    justify-content: center;
+    gap: 4px;
+    height: 48px;
+    /* Force alignment */
+}
+
+.price .amount {
+    font-size: 36px;
+    font-weight: 800;
+    color: #222;
+}
+
+.price .unit {
+    font-size: 16px;
+    color: #888;
+}
+
+.pricing-card .desc {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 30px;
+    height: 20px;
+    /* Force alignment */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pricing-card .features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: left;
+    display: inline-block;
+    /* To center align list items naturally */
+}
+
+.pricing-card .features li {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #555;
+}
+
+.pricing-card .features li .check {
+    color: #6366F1;
+    /* Brand Blue */
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+/* Buttons */
+.pricing-btn {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+}
+
+.pricing-btn.basic {
+    background: #f0f0f0;
+    color: #555;
+}
+
+.pricing-btn.basic:hover {
+    background: #e0e0e0;
+}
+
+.pricing-btn.primary {
+    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+    /* Strong Blue for visibility */
+    color: white;
+}
+
+.pricing-btn.primary:hover {
+    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .features-grid,
+    .guide-steps-container,
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-hero h1 {
+        font-size: 26px;
+    }
+
+    .guide-visual-area {
+        height: 250px;
+    }
+
+    .pricing-card.basic {
+        transform: none;
+    }
+
+    .pricing-card.basic:hover {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

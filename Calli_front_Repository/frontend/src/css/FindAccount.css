@@ -1,0 +1,257 @@
+/* FindAccount.css: 아이디/비밀번호 찾기 화면 전용 스타일 시트 */
+
+.recovery-screen-inner {
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+/* 카드형 메인 컨테이너 */
+.recovery-card {
+    display: flex;
+    width: 1100px;
+    height: 700px;
+    background: #ffffff;
+    border-radius: 40px;
+    overflow: hidden; /* ✅ 카드 디자인 유지 */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    animation: fadeInScale 0.6s ease-out;
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* --- 왼쪽: 폼 영역 --- */
+.recovery-left {
+    flex: 1;
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    /* ✅ [핵심] 카드 고정 높이(700px) 안에서 왼쪽만 정상 스크롤 되게 */
+    height: 100%;
+    min-height: 0; /* ⭐ flex overflow 동작 필수 */
+}
+
+/* 로그인으로 돌아가기 버튼 */
+.back-login-button {
+    position: absolute;
+    top: 40px;
+    left: 80px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: #0d84d9;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.back-login-button:hover { transform: translateX(-4px); }
+
+.back-icon { width: 20px; height: 20px; }
+
+/* 헤더 텍스트 */
+.recovery-header {
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.recovery-logo-text {
+    font-family: "Audiowide", cursive;
+    font-size: 42px;
+    color: #0d84d9;
+    margin-bottom: 8px;
+}
+
+.recovery-subtitle { font-size: 16px; color: #666; }
+
+/* 탭 버튼 스타일링 */
+.recovery-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.tab-button {
+    flex: 1;
+    height: 46px;
+    border-radius: 23px;
+    border: 1px solid #0d84d9;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* 비활성 탭 */
+.tab-button:not(.active) {
+    background: #fff;
+    color: #0d84d9;
+}
+
+/* 활성 탭 */
+.tab-button.active {
+    background: #0d84d9;
+    color: #fff;
+}
+
+/* ✅ [핵심] 폼 전체 높이 고정 제거 → 아래 잘림 방지 */
+.recovery-form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;          /* ✅ 남은 공간 다 쓰기 */
+    min-height: 0;    /* ⭐ overflow 필수 */
+    margin-top: -10px;
+}
+
+/* ✅ 입력 필드 영역만 스크롤 */
+.recovery-inputs-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;   /* ✅ 여기서만 스크롤 */
+    padding-right: 6px; /* ✅ 스크롤바 생겨도 예쁘게 */
+}
+
+/* 스크롤바(선택) - 크롬/엣지 */
+.recovery-inputs-area::-webkit-scrollbar { width: 6px; }
+.recovery-inputs-area::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.15);
+    border-radius: 10px;
+}
+.recovery-inputs-area::-webkit-scrollbar-track { background: transparent; }
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    /* ✅ 기존 height:80px 때문에 문구 잘림/밀림 발생 → 최소 높이로 */
+    min-height: 80px;
+    height: auto;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.input-group input {
+    height: 48px;
+    padding: 0 20px;
+    background: #fdfdfd;
+    border: 1px solid #e1e8ed;
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.input-group input:focus {
+    border-color: #0d84d9;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(13, 132, 217, 0.1);
+}
+
+/* ✅ [추가] 서버 메시지 자리 고정(문구 뜰 때 배열 덜 흔들림) */
+.recovery-message-slot {
+    min-height: 18px;
+    margin-top: 8px;
+}
+
+/* 제출 버튼 (항상 아래쪽에 오도록) */
+.recovery-submit-button {
+    height: 54px;
+    background: #0d84d9;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.2s;
+}
+
+.recovery-submit-button:hover {
+    background: #0b72bb;
+    transform: translateY(-2px);
+}
+
+/* --- 오른쪽: 슬라이드쇼 영역 --- */
+.recovery-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.recovery-slideshow-container {
+    width: 85%;
+    height: 85%;
+    position: relative;
+}
+
+.recovery-slide-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.15));
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.recovery-slide-img.active { opacity: 1; }
+
+/* --- 반응형 레이아웃 --- */
+@media (max-width: 1150px) {
+    .recovery-card {
+        width: 95%;
+        height: auto;
+        min-height: 600px;
+    }
+
+    /* ✅ height:auto일 때 입력 스크롤이 과해지지 않도록 */
+    .recovery-left {
+        height: auto;
+        min-height: auto;
+    }
+    .recovery-form {
+        flex: unset;
+        min-height: unset;
+    }
+    .recovery-inputs-area {
+        overflow-y: visible;
+        max-height: none;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .recovery-card { flex-direction: column; }
+
+    .recovery-left { padding: 60px 40px; }
+
+    .recovery-right { display: none; }
+
+    .back-login-button { left: 40px; }
+}

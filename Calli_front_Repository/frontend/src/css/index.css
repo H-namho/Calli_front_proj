@@ -1,0 +1,48 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  /* overflow, height 제거 */
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* [보안 기능] 이미지 선택 및 드래그 방지 */
+img {
+  -webkit-user-drag: none;
+  /* 크롬, 사파리 등 */
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  -user-drag: none;
+
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
+  /* 터치 롱프레스에 의한 이미지 저장 메뉴 방지 (모바일) */
+  -webkit-touch-callout: none;
+}

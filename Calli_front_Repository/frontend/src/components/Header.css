@@ -1,0 +1,53 @@
+/* Fixed Header */
+.top-bar {
+    height: 80px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: 1000;
+    padding: 0 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.hamburger-menu {
+    position: absolute;
+    left: 40px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: #1a1a1a;
+}
+
+.center-logo {
+    font-family: Audiowide, "Audiowide", Helvetica;
+    font-size: 30px;
+    color: #000000;
+    letter-spacing: -0.5px;
+}
+
+.login-link {
+    position: absolute;
+    right: 40px;
+    font-family: "Noto Sans KR", Helvetica;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1a1a1a;
+    cursor: pointer;
+}
+
+.user-greeting {
+    position: absolute;
+    right: 40px;
+    font-family: "Noto Sans KR", Helvetica;
+    font-size: 16px;
+    font-weight: 600;
+    color: #6366F1;
+    /* 포인트 컬러 적용 */
+}

@@ -1,0 +1,221 @@
+/* Footer.css */
+.site-footer {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    padding: 60px 40px 30px;
+    font-size: 14px;
+    margin-top: auto;
+    /* Push to bottom if flex container */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #333;
+}
+
+.footer-left {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.footer-logo img {
+    height: 30px;
+    width: auto;
+}
+
+.footer-logo-text {
+    font-family: 'Audiowide', cursive;
+    font-size: 20px;
+    color: #fff;
+}
+
+.footer-desc {
+    color: #999;
+    line-height: 1.6;
+}
+
+.footer-links {
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.link-column h4 {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.link-column a,
+.link-column .footer-link-span {
+    display: block;
+    color: #999;
+    text-decoration: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.link-column a:hover,
+.link-column .footer-link-span:hover {
+    color: #6366F1;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 30px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #666;
+    font-size: 13px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.sns-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.sns-icons a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.sns-icons a:hover {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-links {
+        gap: 40px;
+        justify-content: flex-start;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Footer Modal Styles */
+.footer-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    /* High z-index to cover everything including sidebar/header */
+    backdrop-filter: blur(5px);
+}
+
+.footer-modal-content {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    height: 80%;
+    max-height: 700px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: modalFadeIn 0.3s ease;
+    position: relative;
+    color: #333;
+    /* Reset text color since footer is dark */
+}
+
+.footer-modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.footer-modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    flex: 1;
+}
+
+.footer-terms-text {
+    white-space: pre-wrap;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+}
+
+.footer-modal-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-modal-close-btn {
+    width: 120px;
+    height: 44px;
+    background-color: #333;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.footer-modal-close-btn:hover {
+    background-color: #555;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

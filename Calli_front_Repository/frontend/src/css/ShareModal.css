@@ -1,0 +1,263 @@
+/* ShareModal.css */
+.share-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.share-modal-content {
+    background: #fff;
+    width: 480px;
+    max-width: 90%;
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: popUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes popUp {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.share-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.share-modal-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+}
+
+.share-modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.preview-desc {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+/* 스마트폰 프레임 미리보기 */
+.preview-frame-container {
+    padding: 10px;
+}
+
+.preview-mobile-frame {
+    width: 240px;
+    /* 실제 모바일 비율 축소 */
+    height: 400px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 20px;
+    border: 8px solid #333;
+    /* 베젤 효과 */
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
+}
+
+.preview-page-content {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.preview-header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.preview-brand {
+    font-family: "Audiowide", cursive;
+    font-size: 14px;
+    color: #6366F1;
+}
+
+.preview-card {
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.preview-img-wrapper {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;
+}
+
+.preview-img-wrapper img {
+    width: 100%;
+    height: auto;
+    max-height: 120px;
+    object-fit: contain;
+}
+
+.preview-info {
+    text-align: center;
+}
+
+.preview-highlight {
+    font-size: 12px;
+    font-weight: 700;
+    color: #6366F1;
+    margin: 4px 0;
+    font-family: "NanumBrush", cursive;
+}
+
+.preview-style {
+    font-size: 10px;
+    color: #888;
+    margin: 0;
+}
+
+.preview-cta {
+    margin-top: auto;
+    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* 하단 링크 복사 영역 */
+.share-modal-footer {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.link-box {
+    display: flex;
+    gap: 8px;
+}
+
+.link-box input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    background: #f8f9fa;
+    color: #555;
+    font-size: 14px;
+    outline: none;
+}
+
+.copy-btn {
+    padding: 0 20px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.copy-btn:hover {
+    background: #555;
+}
+
+.copy-btn.copied {
+    background: #4CAF50;
+}
+
+.open-link-btn {
+    padding: 0 16px;
+    background: #fff;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.open-link-btn:hover {
+    background: #f8f9fa;
+    border-color: #d1d8dd;
+}
+
+/* Toast Notification Styles */
+.toast-notification {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    background-color: rgba(33, 33, 33, 0.9);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    z-index: 3000;
+    /* Ensure it's above everything */
+}
+
+.toast-notification.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast-icon {
+    font-size: 16px;
+}
+
+.toast-message {
+    font-size: 14px;
+    font-weight: 500;
+}

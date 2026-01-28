@@ -1,0 +1,324 @@
+/* LoginScreen.css: 로그인 화면 전용 스타일 시트 */
+
+/* 전체 화면 컨테이너: 헤더를 제외한 배치를 처리 */
+.login-screen-inner {
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    /* 헤더 영역을 제외한 최소 높이 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+/* 로그인 카드: 좌우 레이아웃을 감싸는 메인 컨테이너 */
+.login-card {
+    display: flex;
+    width: 1100px;
+    height: 700px;
+    background: #ffffff;
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    /* 부드러운 외곽 그림자 */
+    animation: fadeInScale 0.6s ease-out;
+    /* 초기 진입 애니메이션 */
+}
+
+/* 등장 애니메이션 정의 */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* --- 왼쪽: 로그인 입력 폼 및 SNS 버튼 영역 --- */
+.login-left {
+    flex: 1;
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* 왼쪽 상단: 홈으로 가기 버튼 */
+.back-home-button {
+    position: absolute;
+    top: 40px;
+    left: 80px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: #6366F1;
+    /* 브랜드 블루 컬러 */
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.back-home-button:hover {
+    transform: translateX(-4px);
+    /* 호버 시 미세한 움직임 */
+}
+
+.back-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* 로그인 헤더: 서비스 로고 및 타이틀 */
+.login-header {
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.login-logo-text {
+    font-family: "Audiowide", cursive;
+    /* 로고 전용 폰트 */
+    font-size: 42px;
+    color: #6366F1;
+    margin-bottom: 8px;
+}
+
+.login-subtitle {
+    font-size: 16px;
+    color: #666;
+    font-weight: 400;
+}
+
+/* 입력 폼 영역 */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* 입력 필드 기본 스타일 */
+.input-group input {
+    height: 54px;
+    padding: 0 20px;
+    background: #fdfdfd;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.2s;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* 입력 필드 포커스 시 효과 */
+.input-group input:focus {
+    border-color: #6366F1;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.error-message {
+    font-size: 13px;
+    color: #ff3b30;
+    margin-top: -10px;
+    margin-bottom: 5px;
+    padding-left: 4px;
+}
+
+/* 메인 로그인 버튼 */
+.login-main-button {
+    height: 60px;
+    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.login-main-button:hover {
+    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+    transform: translateY(-2px);
+}
+
+/* 로그인 하단 링크 영역 (아이디 찾기/회원가입) */
+.login-footer-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+}
+
+.text-button {
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.text-button:hover {
+    color: #555;
+    text-decoration: underline;
+}
+
+/* SNS 로그인 구분 절차 영역 */
+.sns-login-divider {
+    display: flex;
+    align-items: center;
+    margin: 40px 0;
+    color: #ccc;
+    font-size: 13px;
+}
+
+.sns-login-divider::before,
+.sns-login-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #f0f0f0;
+}
+
+.sns-login-divider span {
+    padding: 0 15px;
+}
+
+/* SNS 로그인 버튼 그룹 패널 */
+.sns-login-group {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+/* 개별 SNS 버튼 공통 원형 스타일 */
+.sns-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid #eee;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    padding: 0;
+    overflow: hidden;
+}
+
+.sns-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+}
+
+.sns-button img {
+    width: 55%;
+    height: 55%;
+    object-fit: contain;
+}
+
+/* SNS 버튼별 브랜드 컬러 적용 */
+.sns-button.kakao {
+    background-color: #FEE500;
+    border: none;
+}
+
+.sns-button.naver {
+    background-color: #03C75A;
+    border: none;
+}
+
+.sns-button.google {
+    background-color: #fff;
+    border: 1px solid #eee;
+}
+
+/* --- 오른쪽: 3초 간격 슬라이드쇼 영역 --- */
+.login-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 슬라이드쇼 내부 컨테이너 */
+.login-slideshow-container {
+    width: 85%;
+    height: 85%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 개별 슬라이드 이미지 기본 상태 */
+.login-slide-img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.15));
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    /* 부드러운 페이드 전환 */
+}
+
+/* 현재 활성화된 슬라이드 이미지 */
+.login-slide-img.active {
+    opacity: 1;
+}
+
+/* --- 반응형 레이아웃 처리 --- */
+
+/* 중간 화면 크기 조정 */
+@media (max-width: 1150px) {
+    .login-card {
+        width: 95%;
+        height: auto;
+        min-height: 600px;
+    }
+}
+
+/* 모바일 및 좁은 화면 최적화 */
+@media (max-width: 900px) {
+    .login-card {
+        flex-direction: column;
+    }
+
+    .login-left {
+        padding: 60px 40px;
+    }
+
+    /* 모바일에서는 시각적 복잡도를 줄이기 위해 슬라이드쇼 영역을 숨김 */
+    .login-right {
+        display: none;
+    }
+
+    .back-home-button {
+        left: 40px;
+    }
+}

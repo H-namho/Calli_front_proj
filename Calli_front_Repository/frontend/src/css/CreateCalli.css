@@ -1,0 +1,694 @@
+/* CreateCalli.css: 생성하기 페이지 레이아웃 최적화 */
+
+/* 전체 화면 높이에 맞게 조정 (헤더 80px 제외) */
+.create-calli-page-inner {
+  width: 100%;
+  height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  overflow: hidden; /* 외부 스크롤 방지 */
+}
+
+/* 메인 컨테이너 레이아웃 */
+.create-container {
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* 좌측 입력 카드 */
+.input-card {
+  background: #fff;
+  padding: 24px 32px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+  border: 1px solid #edf1f5;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+}
+.input-card::-webkit-scrollbar {
+  width: 6px;
+}
+.input-card::-webkit-scrollbar-thumb {
+  background: #e1e8ed;
+}
+
+/* 헤더 */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.title-icon {
+  font-size: 24px;
+  color: #4f46e5;
+}
+.card-title h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.card-info {
+  display: flex;
+  gap: 8px;
+}
+.info-item {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+.info-item.pink {
+  background: #eef2ff;
+  color: #4f46e5;
+}
+.info-item.blue {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+/* 입력 섹션 */
+.input-section {
+  margin-bottom: 20px;
+}
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 8px;
+}
+.section-label .limit {
+  margin-left: auto;
+  font-weight: normal;
+  color: #999;
+  font-size: 12px;
+}
+
+.phrase-textarea {
+  width: 100%;
+  height: 40px;
+  padding: 12px 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  font-size: 14px;
+  font-family: inherit;
+  resize: none;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #fcfdfe;
+  overflow: hidden;
+}
+
+.style-input,
+.bg-input {
+  width: 100%;
+  height: 100px;
+  padding: 12px 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  background: #fcfdfe;
+  resize: none;
+}
+
+.phrase-textarea:focus,
+.style-input:focus,
+.bg-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.quick-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.tag-btn {
+  padding: 4px 12px;
+  background: #eef2ff;
+  color: #4f46e5;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.tag-btn:hover {
+  background: #ddeeff;
+}
+
+/* 비율 */
+.ratio-section {
+  margin-bottom: 15px;
+}
+.ratio-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 3px;
+}
+.ratio-btn {
+  flex: 1;
+  height: 35px;
+  background: #fff;
+  border: 1px solid #e1e8ed;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.ratio-btn.active {
+  background: #6366f1;
+  color: #fff;
+  border-color: #6366f1;
+}
+
+/* 생성 버튼 */
+.main-generate-btn {
+  width: 100%;
+  height: 54px;
+  background: #e2e4e7;
+  border: none;
+  border-radius: 16px;
+  color: #999;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: not-allowed;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+.main-generate-btn:not(:disabled) {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+/* 우측 */
+.display-area {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* ✅ 간격 줄임 */
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+}
+
+.preview-card {
+  background: #fff;
+  padding: 24px 32px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+  border: 1px solid #edf1f5;
+  display: flex;
+  flex-direction: column;
+  flex: 1.2;
+  min-height: 0;
+}
+
+.preview-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.preview-body {
+  flex: 1;
+  background: #f1f3f5;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #999;
+  padding: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow: hidden;
+  min-height: 0;
+  position: relative;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: fill;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0;
+}
+
+/* 버튼 줄 */
+.action-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.action-btn {
+  height: 48px;
+  background: #fff;
+  border: 1px solid #eef1f4;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+.action-btn.download {
+  color: #4f46e5;
+}
+.action-btn.wishlist {
+  color: #d32f2f;
+}
+
+/* =========================================
+   ✅ 배경 카드 4칸 1줄 (작게)
+========================================= */
+.bg-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+.bg-card {
+  border: 2px solid #eef1f4;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+}
+.bg-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+.bg-card.selected {
+  border-color: #6366f1;
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.22);
+}
+.bg-card-image {
+  width: 100%;
+  height: 70px;
+  overflow: hidden;
+}
+.bg-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.bg-card-label {
+  padding: 6px 8px;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+  background: #fafafa;
+}
+.bg-check-overlay {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.95);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+/* =========================================
+   ✅ History 최종 (5칸 고정 + 그림자 제거 + 간격 줄임)
+========================================= */
+.history-card {
+  background: #fff;
+  padding: 16px 16px; /* ✅ padding 줄임 */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+  border: 1px solid #edf1f5;
+  display: flex;
+  flex-direction: column;
+  flex: 0.8;
+  min-height: 0;
+  min-width: 0;
+}
+
+/* 헤더 */
+.history-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 6px; /* ✅ 헤더-리스트 간격 줄임 */
+}
+.history-header h2 {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* ✅ 오른쪽 2/5 */
+.history-count {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 700;
+  color: #999;
+}
+
+/* 리스트 */
+.history-body {
+  width: 100%;
+  flex: 1;
+}
+
+/* ✅ 5칸 고정 그리드 */
+.history-list {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+  padding: 6px 0 0 0 !important; /* ✅ 위쪽 간격 줄임 */
+  overflow: hidden !important;
+}
+
+/* ✅ 히스토리 카드 */
+.history-item {
+  width: 100% !important;
+  height: 110px !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  cursor: pointer;
+  position: relative !important;
+  margin: 0 !important;
+  border: 1px solid #edf1f5;
+  background: #fff;
+  transition: transform 0.15s ease;
+}
+
+/* ✅ "그림자" 원인 제거 */
+.history-item:hover {
+  transform: translateY(-2px);
+  box-shadow: none !important; /* ✅ 완전 제거 */
+}
+
+/* 이미지 */
+.history-item img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* 하단 정보 바 */
+.history-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 6px 8px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 11px;
+  line-height: 1.2;
+}
+.history-title {
+  font-weight: 900;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.history-sub {
+  opacity: 0.9;
+  margin-top: 2px;
+}
+
+/* 삭제 버튼 (hover시에만) */
+.history-remove-btn {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 900;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.15s ease;
+}
+.history-item:hover .history-remove-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+.history-remove-btn:hover {
+  background: rgba(99, 102, 241, 0.95);
+}
+
+/* ✅ 선택된 히스토리 강조 */
+.history-item.selected {
+  outline: 2px solid rgba(99, 102, 241, 0.95);
+}
+
+/* ✅ 빈칸 placeholder */
+.history-empty-slot {
+  background: #f3f4f6;
+  border: 1px dashed #e5e7eb;
+  cursor: default;
+}
+
+/* ✅ 히스토리 없음 텍스트 */
+.history-empty-text {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #888;
+}
+
+/* 반응형 */
+@media (max-width: 1000px) {
+  .create-calli-page-inner {
+    height: auto;
+    overflow-y: auto;
+    padding: 40px 20px;
+  }
+  .create-container {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .preview-body {
+    height: 300px;
+  }
+}
+
+@media (max-width: 900px) {
+  .bg-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .history-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+/* =========================================
+   ✅ History 리뉴얼 (그림자 OFF, 이미지만 ON)
+========================================= */
+
+/* 1. History 카드 전체 컨테이너 */
+.history-card {
+  background: #fff;
+  padding: 20px; /* 내부 여백 */
+  /* 기존의 box-shadow를 제거하여 플랫하게 만듭니다. */
+  box-shadow: none !important;
+  border: 1px solid #edf1f5;
+  border-radius: 16px; /* 둥근 모서리 통일 */
+  display: flex;
+  flex-direction: column;
+  flex: 0.8; /* 상단 프리뷰와의 비율 */
+  min-height: 0;
+  min-width: 0;
+}
+
+/* 2. 헤더 (제목 및 카운트) */
+.history-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 12px; /* 리스트와의 간격 */
+}
+.history-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: #333;
+}
+.history-header .icon {
+  color: #6366f1; /* 아이콘 색상 포인트 */
+}
+.history-count {
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 600;
+  color: #999;
+}
+
+/* 3. 리스트 그리드 (5칸 고정) */
+.history-body {
+  width: 100%;
+  flex: 1;
+  overflow-y: auto; /* 내용이 많으면 스크롤 */
+}
+.history-list {
+  display: grid !important;
+  /* 항상 5열로 고정 */
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 12px !important; /* 아이템 간 간격 */
+  padding: 4px !important; /* 테두리 잘림 방지 여백 */
+}
+
+/* =========================================
+   ✅ 핵심: 개별 아이템 스타일
+========================================= */
+.history-item {
+  position: relative !important;
+  width: 100% !important;
+  /* 썸네일을 정사각형으로 만듭니다. (원하시면 높이 고정값으로 변경 가능) */
+  aspect-ratio: 1 / 1;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  cursor: pointer;
+  background: #f3f4f6; /* 이미지 로딩 전 배경색 */
+  
+  /* ⭐ 그림자와 움직임 효과 완전 제거 ⭐ */
+  box-shadow: none !important;
+  transform: none !important;
+  
+  /* 테두리로 상태 표시 (기본은 투명) */
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+/* 4. 마우스 호버 효과 */
+.history-item:hover {
+  /* 그림자 대신 연한 브랜드 컬러 테두리로 표시 */
+  border-color: #a5a6f6;
+  transform: none !important; /* 움직임 방지 */
+  box-shadow: none !important; /* 그림자 방지 */
+}
+
+/* 5. 선택된 아이템 강조 */
+.history-item.selected {
+  /* 진한 브랜드 컬러 테두리로 확실하게 강조 */
+  border-color: #6366f1 !important;
+}
+
+/* 6. 이미지 스타일 */
+.history-item img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important; /* 영역에 꽉 차게 */
+  display: block !important;
+  /* 이미지 자체의 필터나 그림자도 제거 */
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+/* ⭐ 핵심: 텍스트 오버레이 숨김 ⭐ */
+/* 이 부분을 통해 썸네일 위의 글자와 검은 배경이 사라집니다. */
+.history-overlay {
+  display: none !important;
+}
+
+/* 7. 삭제(x) 버튼 스타일 */
+.history-remove-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  /* 이미지만 있으므로 배경을 좀 더 진하게 해서 잘 보이게 함 */
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1;
+  padding-bottom: 2px; /* 아이콘 수직 중앙 정렬 미세 조정 */
+  
+  /* 기본적으로 숨김 */
+  opacity: 0;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+  z-index: 10; /* 이미지 위에 오도록 */
+}
+
+/* 아이템에 마우스를 올렸을 때만 삭제 버튼 표시 */
+.history-item:hover .history-remove-btn {
+  opacity: 1;
+}
+
+/* 삭제 버튼 호버 시 강조 */
+.history-remove-btn:hover {
+  background: #ef4444; /* 빨간색 */
+}
+
+/* 8. 빈칸 (Placeholder) 스타일 */
+.history-empty-slot {
+  background: #f9fafb;
+  border: 2px dashed #e5e7eb; /* 점선 테두리 */
+  cursor: default;
+}
+/* 빈칸은 호버 효과 없음 */
+.history-empty-slot:hover {
+  border-color: #e5e7eb;
+}
+
+/* 9. 반응형 조정 (화면이 좁아질 때) */
+@media (max-width: 768px) {
+  .history-list {
+    /* 모바일에서는 4열이나 3열로 줄여서 공간 확보 */
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+/* 혹시 모를 잔여 그림자 강제 제거 */
+.history-card *,
+.history-item * {
+  box-shadow: none !important;
+}

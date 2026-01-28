@@ -1,0 +1,283 @@
+/* MyPageEdit.css */
+
+.edit-container {
+    width: 700px;
+    max-width: 95%;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.edit-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.edit-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.edit-label {
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+.edit-input-wrapper {
+    display: flex;
+    gap: 12px;
+}
+
+.edit-input {
+    width: 100%;
+    height: 40px;
+    padding: 0 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    /* 패딩 포함 크기 계산 */
+}
+
+/* 버튼과 함께 있는 인풋창은 남은 공간을 채우도록 */
+.edit-input-wrapper .edit-input {
+    flex: 1;
+    width: auto;
+}
+
+.edit-input:focus {
+    border-color: #6366F1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.edit-input.readonly {
+    background-color: #f5f5f5;
+    color: #888;
+    cursor: default;
+}
+
+.check-btn {
+    height: 48px;
+    padding: 0 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.edit-helper-text {
+    font-size: 13px;
+    color: #888;
+    margin-top: 4px;
+}
+
+.edit-actions {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    /* 세로 정렬로 변경 */
+    align-items: center;
+    gap: 16px;
+}
+
+.edit-btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.cancel-btn {
+    width: 120px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    color: #666;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.save-btn {
+    width: 300px;
+    height: 40px;
+    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.save-btn:hover {
+    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+}
+
+/* 회원 탈퇴 버튼 스타일 */
+.withdraw-btn {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 13px;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+
+.validation-msg {
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.validation-msg.success {
+    color: #4CAF50;
+}
+
+.validation-msg.error {
+    color: #f44336;
+}
+
+/* Withdrawal Modal */
+.withdraw-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.withdraw-modal {
+    background-color: white;
+    width: 480px;
+    max-width: 90%;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.withdraw-title {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: #333;
+}
+
+.withdraw-warning-box {
+    background-color: #ffe3e3;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #c92a2a;
+    line-height: 1.5;
+}
+
+.withdraw-desc {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+}
+
+.withdraw-reason-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.withdraw-reason-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+}
+
+.withdraw-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Noto Sans KR', sans-serif;
+    outline: none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.withdraw-textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 14px;
+    resize: none;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    outline: none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.withdraw-modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.withdraw-btn-prev {
+    flex: 1;
+    padding: 12px;
+    background-color: #f1f3f5;
+    color: #555;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.withdraw-btn-next {
+    flex: 2;
+    padding: 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.withdraw-btn-final {
+    flex: 2;
+    padding: 12px;
+    background-color: #fa5252;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
